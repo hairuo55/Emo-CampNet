@@ -1,0 +1,932 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta name="google-site-verification" content="ftFOlJETX-2KNjaPh8W6s8lhigItRuu9fOmjHZZ0nY0" />
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <title>Emo-CampNet: Zero-shot Emotion Selectable End-to-End Text-based Speech Editing</title>
+</head>
+<style type="text/css">
+  table {
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+
+  audio {
+    width: 100%;
+  }
+
+
+
+  
+  @media (max-width: 767px) {
+    .big-screen {
+      display: none;
+    }
+  }
+
+  @media (min-width: 767px) {
+    .small-screen {
+      display: none;
+    }
+  }
+</style>
+
+
+
+
+<body>
+
+  <header class="header">
+    <div class="jumbotron bg-secondary text-center">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-12">
+            <h1><a class="text-light">
+				Emo-CampNet: Zero-shot Emotion Selectable End-to-End Text-based Speech Editing</a></h1>
+            <p>
+              <div class="row">
+                <div class="col-md col-sm-12"><a class="text-light">Tao Wang (tao.wang@nlpr.ia.ac.cn)</a> </div>
+              </div>
+            </p>
+			<p><a class="text-light">National Laboratory of Pattern Recognition, CASIA, Beijing, China<br>
+                CAS Center for Excellence in Brain Science and Intelligence Technology, Beijing, China<br>
+				School of Artificial Intelligence, University of Chinese Academy of Sciences, Beijing, China
+				</p></a>
+				
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  
+  <main>
+    <div class="container">
+      <div class="row" id="intro">
+        <div class="col">
+          <h2>Messages</h2>
+          <div>
+		  <p>
+		  In our previous work, we proposed the <a href="https://hairuo55.github.io/CampNet" title="CampNet"> CampNet</a> for end-to-end text-based speech editing, which can delete, replace and insert the speech at the word
+level by editing the transcription.
+</p>
+		  <p>
+In this work, we propose  <a href="https://hairuo55.github.io/CampNet" title="Emo-CampNet"> Emo-CampNet</a>, which can provide emotional options for generated speech on the basis of text-based speech editing, so as to make generated speech more expressive.
+This page shows the samples in the paper "<b>Zero-shot Emotion Selectable End-to-End Text-based Speech Editing</b>". </p> 
+			<p>
+			Experiments were based on <b>VCTK</b> and <b>ESD</b> . All test samples have not appeared in the training set and validation set. 
+			</p>
+			
+						<p>
+			Arxiv: <a href="https://arxiv.org/abs/2202.09950" title="https://arxiv.org/abs/2202.09950"> https://arxiv.org/abs/2202.09950 </a>
+			</p>
+			
+			<p>
+			 </div>
+        </div>
+      </div>
+
+<h4>Content</h4>
+<li><a href="#exp1"><font size="4">1: Insertion and replacement of emotion selectable text-based speech editing based on Emo-CampNet</font></a>
+<li><a href="#exp2"><font size="4">2: Comparison with baseline systems (Insert operation)</font></a>
+
+
+		  <a name="exp1">
+ <hr>
+
+
+
+
+
+		  <h3>1: Insertion and replacement of emotion selectable text-based speech editing based on Emo-CampNet</h3>
+				 
+                  <div class="big-screen">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th width="12%" >speaker</th>
+                          <th width="26%">Original</th>
+                          <th width="10%">Emotion</th>
+						  <th width="26%">Replace some words with new words</th>
+						  <th width="26%">Insert some words</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+
+
+
+      <th  scope="row">p362 (female)<br> seen speaker</th>
+						  
+                          <td> 
+                            <audio controls>
+                              <source src="./audio/emo-campnet/p362_007.wav" type="audio/wav" />
+                            </audio><br><i> The rainbow is a division of white light into many beautiful colors.</i>
+                          </td>
+						  
+						  <td><br><i>Neutral</i>
+                          </td>
+						  
+                          <td>
+                            <audio controls>
+                              <source src="./audio/emo-campnet/p362_0071_Neutral.wav" type="audio/wav" />
+                            </audio><br><i>The rainbow is a division of  <font size="4"  color="red">black light (<strike>white light</strike>)</font>  into many beautiful colors.</i>
+                          </td>
+
+			
+
+						  <td>
+                            <audio controls>
+                              <source src="./audio/emo-campnet/p362_0072_Neutral.wav" type="audio/wav" />
+                            </audio><br><i>The rainbow is <font size="4"  color="red">colorful light and</font> a division of white light into many beautiful colors.</i>
+                          </td>						  
+                       
+						
+						<tr>
+                        <th  style="border-top-style:none" scope="row"></th>
+						<th  style="border-top-style:none" scope="row"></th>
+						    <td style="border-top-style:none"> 
+                              <br><i>Happy</i>
+                          </td>
+	  
+						  
+                              <td style="border-top-style:none">
+                                <audio controls>
+                                  <source src="./audio/emo-campnet/p362_0071_Happy.wav" type="audio/wav" />
+                                </audio><br><i>The rainbow is a division of  <font size="4"  color="red">black light (<strike>white light</strike>)</font>   into many beautiful colors.</i>
+                              </td>
+                              
+						  <td>
+                            <audio controls>
+                              <source src="./audio/emo-campnet/p362_0072_Happy.wav" type="audio/wav" />
+                            </audio><br><i>The rainbow is <font size="4"  color="red">colorful light and</font> a division of white light into many beautiful colors.</i>
+                          </td>		
+						  
+						</tr>						
+
+                        <tr>
+                        <th  style="border-top-style:none" scope="row"></th>
+						<th  style="border-top-style:none" scope="row"></th>
+						    <td style="border-top-style:none"> 
+                              <br><i>Sad</i>
+                          </td>
+	  
+						  
+                              <td style="border-top-style:none">
+                                <audio controls>
+                                  <source src="./audio/emo-campnet/p362_0071_Sad.wav" type="audio/wav" />
+                                </audio><br><i>The rainbow is a division of  <font size="4"  color="red">black light (<strike>white light</strike>)</font>    light into many beautiful colors.</i>
+                              </td>
+                              
+						  <td>
+                            <audio controls>
+                              <source src="./audio/emo-campnet/p362_0072_Sad.wav" type="audio/wav" />
+                            </audio><br><i>The rainbow is <font size="4"  color="red">colorful light and</font> a division of white light into many beautiful colors.</i>
+                          </td>		
+						  
+						</tr>		
+
+
+						<tr>
+                        <th  style="border-top-style:none" scope="row"></th>
+						<th  style="border-top-style:none" scope="row"></th>
+						    <td style="border-top-style:none"> 
+                              <br><i>Angry</i>
+                          </td>
+	  
+						  
+                              <td style="border-top-style:none">
+                                <audio controls>
+                                  <source src="./audio/emo-campnet/p362_0071_Angry.wav" type="audio/wav" />
+                                </audio><br><i>The rainbow is a division of  <font size="4"  color="red">black light (<strike>white light</strike>)</font>   into many beautiful colors.</i>
+                              </td>
+                              
+						  <td>
+                            <audio controls>
+                              <source src="./audio/emo-campnet/p362_0072_Angry.wav" type="audio/wav" />
+                            </audio><br><i>The rainbow is <font size="4"  color="red">colorful light and</font> a division of white light into many beautiful colors.</i>
+                          </td>		
+						  
+						</tr>						
+
+                        <tr>
+                        <th  style="border-top-style:none" scope="row"></th>
+						<th  style="border-top-style:none" scope="row"></th>
+						    <td style="border-top-style:none"> 
+                              <br><i>Surprise</i>
+                          </td>
+	  
+						  
+                              <td style="border-top-style:none">
+                                <audio controls>
+                                  <source src="./audio/emo-campnet/p362_0071_Surprise.wav" type="audio/wav" />
+                                </audio><br><i>The rainbow is a division of <font size="4"  color="red">black light (<strike>white light</strike>)</font>   into many beautiful colors.</i>
+                              </td>
+                              
+						  <td>
+                            <audio controls>
+                              <source src="./audio/emo-campnet/p362_0072_Surprise.wav" type="audio/wav" />
+                            </audio><br><i>The rainbow is <font size="4"  color="red">colorful light and</font> a division of white light into many beautiful colors.</i>
+                          </td>		
+						  
+						</tr>	
+						
+						
+      <th  scope="row">p225 (female) <br> unseen speaker</th>
+						  
+                          <td> 
+                            <audio controls>
+                              <source src="./audio/emo-campnet/p225_007.wav" type="audio/wav" />
+                            </audio><br><i> The rainbow is a division of white light into many beautiful colors.</i>
+                          </td>
+						  
+						  <td><br><i>Neutral</i>
+                          </td>
+						  
+                          <td>
+                            <audio controls>
+                              <source src="./audio/emo-campnet/p225_0071_Neutral.wav" type="audio/wav" />
+                            </audio><br><i>The rainbow is a division of  <font size="4"  color="red">black light (<strike>white light</strike>)</font>  into many beautiful colors.</i>
+                          </td>
+
+			
+
+						  <td>
+                            <audio controls>
+                              <source src="./audio/emo-campnet/p225_0072_Neutral.wav" type="audio/wav" />
+                            </audio><br><i>The rainbow is <font size="4"  color="red">colorful light and</font> a division of white light into many beautiful colors.</i>
+                          </td>						  
+                       
+						
+						<tr>
+                        <th  style="border-top-style:none" scope="row"></th>
+						<th  style="border-top-style:none" scope="row"></th>
+						    <td style="border-top-style:none"> 
+                              <br><i>Happy</i>
+                          </td>
+	  
+						  
+                              <td style="border-top-style:none">
+                                <audio controls>
+                                  <source src="./audio/emo-campnet/p225_0071_Happy.wav" type="audio/wav" />
+                                </audio><br><i>The rainbow is a division of  <font size="4"  color="red">black light (<strike>white light</strike>)</font>   into many beautiful colors.</i>
+                              </td>
+                              
+						  <td>
+                            <audio controls>
+                              <source src="./audio/emo-campnet/p225_0072_Happy.wav" type="audio/wav" />
+                            </audio><br><i>The rainbow is <font size="4"  color="red">colorful light and</font> a division of white light into many beautiful colors.</i>
+                          </td>		
+						  
+						</tr>						
+
+                        <tr>
+                        <th  style="border-top-style:none" scope="row"></th>
+						<th  style="border-top-style:none" scope="row"></th>
+						    <td style="border-top-style:none"> 
+                              <br><i>Sad</i>
+                          </td>
+	  
+						  
+                              <td style="border-top-style:none">
+                                <audio controls>
+                                  <source src="./audio/emo-campnet/p225_0071_Sad.wav" type="audio/wav" />
+                                </audio><br><i>The rainbow is a division of  <font size="4"  color="red">black light (<strike>white light</strike>)</font>    light into many beautiful colors.</i>
+                              </td>
+                              
+						  <td>
+                            <audio controls>
+                              <source src="./audio/emo-campnet/p225_0072_Sad.wav" type="audio/wav" />
+                            </audio><br><i>The rainbow is <font size="4"  color="red">colorful light and</font> a division of white light into many beautiful colors.</i>
+                          </td>		
+						  
+						</tr>		
+
+
+						<tr>
+                        <th  style="border-top-style:none" scope="row"></th>
+						<th  style="border-top-style:none" scope="row"></th>
+						    <td style="border-top-style:none"> 
+                              <br><i>Angry</i>
+                          </td>
+	  
+						  
+                              <td style="border-top-style:none">
+                                <audio controls>
+                                  <source src="./audio/emo-campnet/p225_0071_Angry.wav" type="audio/wav" />
+                                </audio><br><i>The rainbow is a division of  <font size="4"  color="red">black light (<strike>white light</strike>)</font>   into many beautiful colors.</i>
+                              </td>
+                              
+						  <td>
+                            <audio controls>
+                              <source src="./audio/emo-campnet/p225_0072_Angry.wav" type="audio/wav" />
+                            </audio><br><i>The rainbow is <font size="4"  color="red">colorful light and</font> a division of white light into many beautiful colors.</i>
+                          </td>		
+						  
+						</tr>						
+
+                        <tr>
+                        <th  style="border-top-style:none" scope="row"></th>
+						<th  style="border-top-style:none" scope="row"></th>
+						    <td style="border-top-style:none"> 
+                              <br><i>Surprise</i>
+                          </td>
+	  
+						  
+                              <td style="border-top-style:none">
+                                <audio controls>
+                                  <source src="./audio/emo-campnet/p225_0071_Surprise.wav" type="audio/wav" />
+                                </audio><br><i>The rainbow is a division of <font size="4"  color="red">black light (<strike>white light</strike>)</font>   into many beautiful colors.</i>
+                              </td>
+                              
+						  <td>
+                            <audio controls>
+                              <source src="./audio/emo-campnet/p225_0072_Surprise.wav" type="audio/wav" />
+                            </audio><br><i>The rainbow is <font size="4"  color="red">colorful light and</font> a division of white light into many beautiful colors.</i>
+                          </td>		
+						  
+						</tr>							
+
+
+      <th  scope="row">p226 (male) <br> unseen speaker</th>
+						  
+                          <td> 
+                            <audio controls>
+                              <source src="./audio/emo-campnet/p226_017.wav" type="audio/wav" />
+                            </audio><br><i> Others have tried to explain the phenomenon physically.</i>
+                          </td>
+						  
+						  <td><br><i>Neutral</i>
+                          </td>
+						  
+                          <td>
+                            <audio controls>
+                              <source src="./audio/emo-campnet/p226_0171_Neutral.wav" type="audio/wav" />
+                            </audio><br><i>Others have tried to explain the  <font size="4"  color="red">strange thing (<strike>phenomenon</strike>)</font> physically.</i>
+                          </td>
+
+			
+
+						  <td>
+                            <audio controls>
+                              <source src="./audio/emo-campnet/p226_0172_Neutral.wav" type="audio/wav" />
+                            </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                          </td>						  
+                       
+						
+						<tr>
+                        <th  style="border-top-style:none" scope="row"></th>
+						<th  style="border-top-style:none" scope="row"></th>
+						    <td style="border-top-style:none"> 
+                              <br><i>Happy</i>
+                          </td>
+	  
+						  
+                              <td style="border-top-style:none">
+                                <audio controls>
+                                  <source src="./audio/emo-campnet/p226_0171_Happy.wav" type="audio/wav" />
+                                </audio><br><i>Others have tried to explain the  <font size="4"  color="red">strange thing (<strike>phenomenon</strike>)</font> physically.</i> </td>
+                              
+						  <td>
+                            <audio controls>
+                              <source src="./audio/emo-campnet/p226_0172_Happy.wav" type="audio/wav" />
+                            </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                          </td>		
+						  
+						</tr>						
+
+                        <tr>
+                        <th  style="border-top-style:none" scope="row"></th>
+						<th  style="border-top-style:none" scope="row"></th>
+						    <td style="border-top-style:none"> 
+                              <br><i>Sad</i>
+                          </td>
+	  
+						  
+                              <td style="border-top-style:none">
+                                <audio controls>
+                                  <source src="./audio/emo-campnet/p226_0171_Sad.wav" type="audio/wav" />
+                               </audio><br><i>Others have tried to explain the  <font size="4"  color="red">strange thing (<strike>phenomenon</strike>)</font> physically.</i>  </td>
+                              
+						  <td>
+                            <audio controls>
+                              <source src="./audio/emo-campnet/p226_0172_Sad.wav" type="audio/wav" />
+                           </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                          </td>		
+						  
+						</tr>		
+
+
+						<tr>
+                        <th  style="border-top-style:none" scope="row"></th>
+						<th  style="border-top-style:none" scope="row"></th>
+						    <td style="border-top-style:none"> 
+                              <br><i>Angry</i>
+                          </td>
+	  
+						  
+                              <td style="border-top-style:none">
+                                <audio controls>
+                                  <source src="./audio/emo-campnet/p226_0171_Angry.wav" type="audio/wav" />
+                               </audio><br><i>Others have tried to explain the  <font size="4"  color="red">strange thing (<strike>phenomenon</strike>)</font> physically.</i> </td>
+                              
+						  <td>
+                            <audio controls>
+                              <source src="./audio/emo-campnet/p226_0172_Angry.wav" type="audio/wav" />
+                           </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                          </td>		
+						  
+						</tr>						
+                        <tr>
+                        <th  style="border-top-style:none" scope="row"></th>
+						<th  style="border-top-style:none" scope="row"></th>
+						    <td style="border-top-style:none"> 
+                              <br><i>Surprise</i>
+                          </td>
+	  
+						  
+                              <td style="border-top-style:none">
+                                <audio controls>
+                                  <source src="./audio/emo-campnet/p226_0171_Surprise.wav" type="audio/wav" />
+                              </audio><br><i>Others have tried to explain the  <font size="4"  color="red">strange thing (<strike>phenomenon</strike>)</font> physically.</i>  </td>
+                              
+						  <td>
+                            <audio controls>
+                              <source src="./audio/emo-campnet/p226_0172_Surprise.wav" type="audio/wav" />
+                           </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                          </td>		
+						  
+						</tr>			
+								
+                      </tbody>
+                    </table>
+                  </div>				 
+				  
+				  <a name="exp2">
+				  <hr>
+ 
+
+
+
+
+
+
+
+
+
+  <h3>2: Comparison with baseline systems (Insert operation)</h3>
+				 		  <p>
+		  <font size="4"><b>a: Seen speaker</b></font>
+</p>
+                  <div class="big-screen">
+                    <table class="table">
+                      <thead>
+                        <tr>
+						<th width="10%">Emotion</th>
+                          <th width="18%">Original</th>
+                          <th width="18%">p-w/o-eda</th>
+						  <th width="18%">p-w/o-nda</th>
+						  <th width="18%">p-w/o-dis</th>
+						  <th width="18%">Emo-CampNet</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+
+
+						<tr>
+												  <td><br><i>Neutral</i>
+                          </td>
+						
+                          <td> 
+                            <audio controls>
+                              <source src="./audio/emo-campnet/p362_017.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the  phenomenon physically.</i>
+                         </td>
+						  
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp2/eda/p362_0172_Neutral.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+						  
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp2/nda/p362_0172_Neutral.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp2/gan/p362_0172_Neutral.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp2/emocampnet/p362_0172_Neutral.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+						</tr>				
+
+
+   						<tr>
+												  <td><br><i>Happy</i>
+                          </td>
+                          <td> 
+                            <audio controls>
+                              <source src="./audio/emo-campnet/p362_017.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the  phenomenon physically.</i>
+                         </td>
+						  
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp2/eda/p362_0172_Happy.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+						  
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp2/nda/p362_0172_Happy.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp2/gan/p362_0172_Happy.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp2/emocampnet/p362_0172_Happy.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+						</tr>	
+						
+						
+												<tr>
+																		  <td><br><i>Sad</i>
+                          </td>
+                          <td> 
+                            <audio controls>
+                              <source src="./audio/emo-campnet/p362_017.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the phenomenon physically.</i>
+                         </td>
+						  
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp2/eda/p362_0172_Sad.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+						  
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp2/nda/p362_0172_Sad.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp2/gan/p362_0172_Sad.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp2/emocampnet/p362_0172_Sad.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+						</tr>	
+						
+												<tr>
+																		  <td><br><i>Angry</i>
+                          </td>
+                          <td> 
+                            <audio controls>
+                              <source src="./audio/emo-campnet/p362_017.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the  phenomenon physically.</i>
+                         </td>
+						  
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp2/eda/p362_0172_Angry.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+						  
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp2/nda/p362_0172_Angry.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp2/gan/p362_0172_Angry.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp2/emocampnet/p362_0172_Angry.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+						</tr>	
+						
+												<tr>
+												
+																		  <td><br><i>Surprise</i>
+                          </td>
+                          <td> 
+                            <audio controls>
+                              <source src="./audio/emo-campnet/p362_017.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the phenomenon physically.</i>
+                         </td>
+						  
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp2/eda/p362_0172_Surprise.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+						  
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp2/nda/p362_0172_Surprise.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp2/gan/p362_0172_Surprise.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp2/emocampnet/p362_0172_Surprise.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+						</tr>	
+					
+                      </tbody>
+                    </table>
+                  </div>				 
+      <hr>	    
+
+
+ <p>
+		  <font size="4"><b>b: Unseen speaker</b></font>
+</p>
+                  <div class="big-screen">
+                    <table class="table">
+                      <thead>
+                        <tr>
+						<th width="10%">Emotion</th>
+                          <th width="18%">Original</th>
+                          <th width="18%">p-w/o-eda</th>
+						  <th width="18%">p-w/o-nda</th>
+						  <th width="18%">p-w/o-dis</th>
+						  <th width="18%">Emo-CampNet</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+
+
+						<tr>
+												  <td><br><i>Neutral</i>
+                          </td>
+						
+                          <td> 
+                            <audio controls>
+                              <source src="./audio/emo-campnet/p225_017.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the  phenomenon physically.</i>
+                         </td>
+						  
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp3/eda/p225_0172_Neutral.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+						  
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp3/nda/p225_0172_Neutral.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp3/gan/p225_0172_Neutral.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp3/emocampnet/p225_0172_Neutral.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+						</tr>				
+
+
+   						<tr>
+												  <td><br><i>Happy</i>
+                          </td>
+                          <td> 
+                            <audio controls>
+                              <source src="./audio/emo-campnet/p225_017.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the  phenomenon physically.</i>
+                         </td>
+						  
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp3/eda/p225_0172_Happy.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+						  
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp3/nda/p225_0172_Happy.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp3/gan/p225_0172_Happy.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp3/emocampnet/p225_0172_Happy.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+						</tr>	
+						
+						
+												<tr>
+																		  <td><br><i>Sad</i>
+                          </td>
+                          <td> 
+                            <audio controls>
+                              <source src="./audio/emo-campnet/p225_017.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the phenomenon physically.</i>
+                         </td>
+						  
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp3/eda/p225_0172_Sad.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+						  
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp3/nda/p225_0172_Sad.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp3/gan/p225_0172_Sad.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp3/emocampnet/p225_0172_Sad.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+						</tr>	
+						
+												<tr>
+																		  <td><br><i>Angry</i>
+                          </td>
+                          <td> 
+                            <audio controls>
+                              <source src="./audio/emo-campnet/p225_017.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the  phenomenon physically.</i>
+                         </td>
+						  
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp3/eda/p225_0172_Angry.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+						  
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp3/nda/p225_0172_Angry.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp3/gan/p225_0172_Angry.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp3/emocampnet/p225_0172_Angry.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+						</tr>	
+						
+												<tr>
+												
+																		  <td><br><i>Surprise</i>
+                          </td>
+                          <td> 
+                            <audio controls>
+                              <source src="./audio/emo-campnet/p225_017.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the phenomenon physically.</i>
+                         </td>
+						  
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp3/eda/p225_0172_Surprise.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+						  
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp3/nda/p225_0172_Surprise.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp3/gan/p225_0172_Surprise.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+
+						  <td>
+                            <audio controls>
+                              <source src="./audio/exp3/emocampnet/p225_0172_Surprise.wav" type="audio/wav" />
+                          </audio><br><i>Others have tried to explain the <font size="4"  color="red">very very weird</font> phenomenon physically.</i>
+                        </td>
+						</tr>	
+					
+                      </tbody>
+                    </table>
+                  </div>				 
+
+				  
+     <a name="exp3"> 
+		  <hr>
+
+
+
+
+	  
+	  
+      <hr>	    
+	  
+
+	  
+      <!-- <div class="row" id="contact">
+          <div class="col">
+            <h2>Contact</h2>
+            <div></div>
+          </div>
+        </div> -->
+    </div>
+  </main>
+  <footer class="bg-secondary text-light mt-4 pt-3 pb-2 ">
+    <div class="container">
+      <p class="text-center">
+        <small>
+          Emo-CampNet: Zero-shot Emotion Selectable End-to-End Text-based Speech Editing
+          <br>
+          <a class="text-light"><strong>Tao Wang</strong></a> |
+          tao.wang@nlpr.ia.ac.cn
+		  <br>
+		  		  	  	   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+						   
+			<span id="busuanzi_container_page_pv">
+            Total number of visits: <span id="busuanzi_value_page_pv"></span>
+		    </span>			   
+        </small>
+
+    </div>
+  </footer>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
